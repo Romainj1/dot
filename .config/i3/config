@@ -172,7 +172,7 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-exec feh --bg-scale ~/Image/Backgrounds/SteinsGate.jpg
+exec feh --bg-scale ~/.config/Image/SteinsGate.jpg
 
 bindsym $mod+r mode "resize"
 

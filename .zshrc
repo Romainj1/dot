@@ -99,6 +99,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-wal -q -i ~/Image/Backgrounds/SteinsGate.jpg
+wal -q -i ~/.config/Image/SteinsGate.jpg
 
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
