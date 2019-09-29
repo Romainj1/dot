@@ -102,3 +102,6 @@ source $ZSH/oh-my-zsh.sh
 wal -q -i ~/.config/Image/SteinsGate.jpg
 
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
+
+bindkey "^[[7~" beginning-of-line
+bindkey "^[[8~" end-of-line
