@@ -4,7 +4,7 @@ i3 i3blocks i3gaps i3lock
 Polybar
 zsh
 ohmyzsh
-
+i3lock-fancy
 # SETUP
 
 ```
