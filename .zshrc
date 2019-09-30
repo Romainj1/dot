@@ -1,6 +1,13 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# In General, I prefer nano to vim (sorry not sorry)
+export EDITOR=nano
+
+
+# Pywall installed from pip3 install --user pywal needs his path
+export PATH="${PATH}:${HOME}/.local/bin/"
+
 # Path to your oh-my-zsh installation.
 export ZSH="~/.oh-my-zsh"
 
@@ -104,3 +111,7 @@ alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
 
 bindkey "^[[7~" beginning-of-line
 bindkey "^[[8~" end-of-line
+
+if [ -f ~/.aliases ]; then
+. ~/.aliases
+fi
