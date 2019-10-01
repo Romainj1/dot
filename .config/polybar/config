@@ -33,9 +33,11 @@ fixed-center = true
 
 ; Background ARGB color (e.g. #f00, #ff992a, #ddff1023)
 background = ${color.bg}
+;background = #00000000
 
 ; Foreground ARGB color (e.g. #f00, #ff992a, #ddff1023)
 foreground = ${color.fg}
+;foreground = #fff
 
 ; border
 border-bottom-size = 2

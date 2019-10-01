@@ -215,11 +215,27 @@ sed -i -e 's/mf = .*/mf = #252525/g' $PDIR/colors.ini
 # Restarting polybar
 $LAUNCH &
 
+elif  [[ $1 = "-light-tr" ]]; then
+# Replacing colors
+sed -i -e 's/bg = .*/bg = #00000000/g' $PDIR/colors.ini
+sed -i -e 's/fg = .*/fg = #eee/g' $PDIR/colors.ini
+# Restarting polybar
+$LAUNCH
+
+elif  [[ $1 = "-dark-tr" ]]; then
+# Replacing colors
+sed -i -e 's/bg = .*/bg = #00000000/g' $PDIR/colors.ini
+sed -i -e 's/fg = .*/fg = #000/g' $PDIR/colors.ini
+# Restarting polybar
+$LAUNCH 
+
 else
 echo "Available options:
 -amber		-blue			-blue-grey		-brown
 -cyan		-deep-orange		-deep-purple		-green
 -grey		-indigo			-light-blue		-light-green
 -lime		-orange			-pink			-purple
--red		-teal			-yellow"
+-red		-teal			-yellow			-light-tr
+-dark-tr"
 fi
+
