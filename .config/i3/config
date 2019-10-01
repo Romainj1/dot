@@ -198,7 +198,7 @@ gaps outer 10
 # Application Launcher
 bindsym $mod+d exec rofi -show run
 
-client.focused          #900000 #900000 #2D2D2D #2e9ef4
+client.focused          #e65050 #e65050 #2D2D2D #2e9ef4
 client.focused_inactive #2d2d2d #2d2d2d #dcdcdc #484e50
 client.unfocused        #2D2D2D #2d2d2d #dcdcdc #292d2e
 client.urgent           #2D2D2D #2D2D2D #dcdcdc #900000
