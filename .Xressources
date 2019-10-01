@@ -9,13 +9,22 @@ URxvt.urgentOnBell: True
 URxvt.cursorBlink: False
 
 ! Extensions
-URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select,font-size
+URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select,font-size, selection-to-clipboard
+
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+!URxvt.urlLauncher: xdg-open
+!URxvt.urlButton: 1
+!URxvt.underlineURLs: True
+
+URxvt.copyCommand:  xcl
 URxvt.urlLauncher: xdg-open
 URxvt.urlButton: 1
 URxvt.underlineURLs: True
 
-URxvt.copyCommand:  xclip -i -selection clipboard
-URxvt.pasteCommand: xclip -o -selection clipboard
+!URxvt.copyCommand:  xclip -i -selection clipboard
+!URxvt.pasteCommand: xclip -o -selection clipboard
 
 ! Keybindings
 URxvt.keysym.Mod1-c: clipboard:copy
@@ -162,3 +171,11 @@ URxvt.perl-lib: ~/.config/urxvt/perl
 URxvt.keysym.Control-plus: perl:font-increase
 URxvt.keysym.Control-minus: perl:font-decrease
 URxvt.keysym.Control-equal: perl:font-reset
+
+
+
+
+URxvt.clipboard.autocopy: true
+!URxvt.keysym.M-c: perl:clipboard:copy
+!URxvt.keysym.M-v: perl:clipboard:paste
+
