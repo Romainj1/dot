@@ -4,7 +4,7 @@
 ## Github : adi1090x
 
 PDIR="$HOME/.config/polybar"
-LAUNCH="polybar-msg cmd restart"
+LAUNCH="${PDIR}/launch.sh"
  
 if  [[ $1 = "-amber" ]]; then
 # Replacing colors
@@ -229,13 +229,26 @@ sed -i -e 's/fg = .*/fg = #000/g' $PDIR/colors.ini
 # Restarting polybar
 $LAUNCH 
 
+# Use Of pywal
+elif  [[ $1 = "-pywal" ]]; then
+# Replacing colors
+sed -i -e 's/bg = .*/bg = ${color.background}/g' $PDIR/colors.ini
+sed -i -e 's/fg = .*/fg = ${color.foreground}/g' $PDIR/colors.ini
+sed -i -e 's/ac = .*/ac = ${color.primary}/g' $PDIR/colors.ini
+sed -i -e 's/bi = .*/bi = ${color.secondary}/g' $PDIR/colors.ini
+sed -i -e 's/be = .*/be = ${color.secondary}/g' $PDIR/colors.ini
+sed -i -e 's/mf = .*/mf = ${color.foreground-alt}/g' $PDIR/colors.ini
+
+# Restarting polybar
+$LAUNCH 
+
 else
 echo "Available options:
 -amber		-blue			-blue-grey		-brown
--cyan		-deep-orange		-deep-purple		-green
+-cyan		-deep-orange	-deep-purple	-green
 -grey		-indigo			-light-blue		-light-green
 -lime		-orange			-pink			-purple
 -red		-teal			-yellow			-light-tr
--dark-tr"
+-dark-tr    -pywal"
 fi
 
