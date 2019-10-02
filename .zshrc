@@ -117,3 +117,5 @@ bindkey "^[[8~" end-of-line
 if [ -f ~/.aliases ]; then
 . ~/.aliases
 fi
+
+.config/polybar/scripts/updates.sh
