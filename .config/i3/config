@@ -189,7 +189,7 @@ gaps outer 10
 # Using pywal to set color scheme
 # Randomize Background at each reload/usr/bin/bash $HOME/.config/Image/randomize-background.sh
 # move wal to /usr/bin
-exec_always --no-startup-id wal -q -i $(/home/romain/.config/Image/randomize-background.sh)
+exec_always --no-startup-id wal -q -i $($HOME/.config/Image/randomize-background.sh)
 
 # Pywal - i3 - Xressource
 # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
