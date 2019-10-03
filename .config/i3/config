@@ -169,13 +169,6 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-# Using pywal to set color scheme
-# Randomize Background at each reload
-exec_always /usr/bin/bash $HOME/.config/Image/randomize-background.sh
-
-# Using pywal to set color scheme
-# exec_always wal -i $HOME/.config/Image/Background
-
 bindsym $mod+r mode "resize"
 
 # Polybar
@@ -192,6 +185,11 @@ gaps outer 10
 # client.focused_inactive #2d2d2d #2d2d2d #dcdcdc #484e50
 # client.unfocused        #2D2D2D #2d2d2d #dcdcdc #292d2e
 # client.urgent           #2D2D2D #2D2D2D #dcdcdc #900000
+
+# Using pywal to set color scheme
+# Randomize Background at each reload/usr/bin/bash $HOME/.config/Image/randomize-background.sh
+# move wal to /usr/bin
+exec_always --no-startup-id wal -q -i $(/home/romain/.config/Image/randomize-background.sh)
 
 # Pywal - i3 - Xressource
 # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if

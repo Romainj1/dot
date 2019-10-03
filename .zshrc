@@ -114,6 +114,8 @@ alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
 bindkey "^[[7~" beginning-of-line
 bindkey "^[[8~" end-of-line
 
+(cat ~/.cache/wal/sequences &)
+source ~/.cache/wal/colors-tty.sh
 if [ -f ~/.aliases ]; then
 . ~/.aliases
 fi
