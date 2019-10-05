@@ -56,7 +56,7 @@ font-2 = "xos4 Terminus:size=12;1"
 ; MODULES
 modules-left    = launcher workspaces
 modules-center  = mpd
-modules-right   = updates colors-switch alsa battery backlight checknetwork date sysmenu
+modules-right   = updates colors-switch alsa battery xbacklight checknetwork date sysmenu
 
 wm-restack = i3
 

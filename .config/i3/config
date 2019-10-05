@@ -210,3 +210,7 @@ client.background       $bg
 
 # PROTIP: You can also dynamically set dmenu's colors this way:
 bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg" -fn ':pixelsize=18'
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec "light -A 5; notify-send 'brightness up'";
+bindsym XF86MonBrightnessDown exec "light -U 5; notify-send 'brightness down'";
