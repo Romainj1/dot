@@ -5,44 +5,35 @@
 
 # a script to ssh multiple servers over multiple tmux panes
 
+
 starttmux() {
-  HOSTS=$@
-
-  if [ -z $TMUX]; then
-    echo "Please run tmux"
-  else
-
     if [ -z "$HOSTS" ]; then
-      echo -n "Please provide of list of hosts separated by spaces [ENTER]: "
-      read HOSTS
+       echo -n "Please provide of list of hosts separated by spaces [ENTER]: "
+       read HOSTS
     fi
 
-    FIRST_HOST=$(echo $HOSTS | cut -d' ' -f1)
-    HOSTS=$(echo $HOSTS | cut -d' ' -f2-)
+    local hosts=( $HOSTS )
 
-    tmux new-window "ssh $FIRST_HOST"
-    for i in "$HOSTS"; do
+
+    tmux new-window "ssh ${hosts[0]}"
+    unset hosts[0];
+    for i in "${hosts[@]}"; do
         tmux split-window -h  "ssh $i"
         tmux select-layout tiled > /dev/null
     done
     tmux select-pane -t 0
     tmux set-window-option synchronize-panes on > /dev/null
-  fi
+
 }
 
-ksr() {
-  HOSTS=$(echo $@ | sed "s/-/_/g")
+HOSTS=$*
+
+if [ "$1" = "-k" ]; then 
+  shift 1
+  HOSTS=$*
+  HOSTS=$(echo $HOSTS | sed "s/-/_/g")
   QUERY=$(echo $(printf "role:*%s* " $HOSTS ) | sed "s/ / AND /g")
-  knife search "$QUERY" -i 2> /dev/null | cut -d'.' -f1 # Get ridden of the .localdomain of some Hosts 
-}
+  HOSTS=$(knife search "$QUERY" -i 2> /dev/null | cut -d'.' -f1) # Get ridden of the .localdomain of some Hosts
+fi
 
-kst() {
-  # Check here to fail fast
-  if [ -z $TMUX]; then
-    echo "Please run tmux"
-  else
-    PARAMS=$@
-    HOSTS=$(ksr $PARAMS)
-    starttmux $HOSTS
-  fi
-}
+starttmux
