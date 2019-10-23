@@ -121,3 +121,4 @@ if [ -f ~/.aliases ]; then
 fi
 
 export PAGER="less -FRX"
+alias starttmux="~/.ssh-multi.sh" 
