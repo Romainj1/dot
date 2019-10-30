@@ -18,6 +18,7 @@ starttmux() {
     tmux new-window "ssh ${hosts[0]}"
     unset hosts[0];
     for i in "${hosts[@]}"; do
+        sleep 0.2
         tmux split-window -h  "ssh $i"
         tmux select-layout tiled > /dev/null
     done
@@ -28,12 +29,13 @@ starttmux() {
 
 HOSTS=$*
 
-if [ "$1" = "-k" ]; then 
-  shift 1
-  HOSTS=$*
+if ! [ "$1" = "-k" ]; then 
+  # HOSTS=$*
   HOSTS=$(echo $HOSTS | sed "s/-/_/g")
   QUERY=$(echo $(printf "role:*%s* " $HOSTS ) | sed "s/ / AND /g")
   HOSTS=$(knife search "$QUERY" -i 2> /dev/null | cut -d'.' -f1) # Get ridden of the .localdomain of some Hosts
+else
+  shift 1
+  HOSTS=$*
 fi
-
 starttmux

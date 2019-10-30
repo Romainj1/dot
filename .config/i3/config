@@ -178,8 +178,8 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id xrdb -merge ~/.Xressources
 
 # i3gaps gaps between windowso
-gaps inner 10
-gaps outer 10
+gaps inner 0
+gaps outer 0
 
 # client.focused          #e65050 #e65050 #2D2D2D #2e9ef4
 # client.focused_inactive #2d2d2d #2d2d2d #dcdcdc #484e50
