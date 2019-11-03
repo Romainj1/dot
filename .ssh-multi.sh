@@ -18,7 +18,7 @@ starttmux() {
     tmux new-window "ssh ${hosts[0]}"
     unset hosts[0];
     for i in "${hosts[@]}"; do
-        sleep 0.2
+        sleep 0.1
         tmux split-window -h  "ssh $i"
         tmux select-layout tiled > /dev/null
     done
@@ -29,7 +29,9 @@ starttmux() {
 
 HOSTS=$*
 
-if ! [ "$1" = "-k" ]; then 
+
+
+if ! [ "$1" = "-k" ]; then
   # HOSTS=$*
   HOSTS=$(echo $HOSTS | sed "s/-/_/g")
   QUERY=$(echo $(printf "role:*%s* " $HOSTS ) | sed "s/ / AND /g")
@@ -38,4 +40,11 @@ else
   shift 1
   HOSTS=$*
 fi
+
+if [ "$1" = "-e" ]; then
+  shift 1
+  echo $HOSTS
+  exit 0
+fi
+
 starttmux
