@@ -35,7 +35,7 @@ if ! [ "$1" = "-k" ]; then
   # HOSTS=$*
   HOSTS=$(echo $HOSTS | sed "s/-/_/g")
   QUERY=$(echo $(printf "role:*%s* " $HOSTS ) | sed "s/ / AND /g")
-  HOSTS=$(knife search "$QUERY" -i 2> /dev/null | cut -d'.' -f1) # Get ridden of the .localdomain of some Hosts
+  HOSTS=$(knife search "$QUERY" -a fqdn 2> /dev/null | grep 'fqdn: ' | cut -d':' -f2 |cut -d'.' -f1) # Get ridden of the .localdomain of some Hosts
 else
   shift 1
   HOSTS=$*
