@@ -128,4 +128,10 @@ PERL_LOCAL_LIB_ROOT="/home/romain/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_
 PERL_MB_OPT="--install_base \"/home/romain/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/romain/perl5"; export PERL_MM_OPT;
 
-alias starttmux="~/.ssh-multi.sh"
+#alias starttmux="~/.ssh-multi.sh"
+
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+
+for f in /etc/bash_completion.d/*.sh ; do source $f; done
+
